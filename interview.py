@@ -21,7 +21,7 @@ cursor.execute('''
 
 conn.commit()
 
-def insert_for_data(candidate, company_name, company_address, contact_number, interview_type, date, time):
+def insert_data(candidate, company_name, company_address, contact_number, interview_type, date, time):
     cursor.execute("INSERT INTO details('candidate', 'company_name', 'company_address', 'contact_number', 'interview_type', 'date', time) VALUES (?, ?, ?, ?, ?, ?, ?)", (candidate, company_name, company_address, contact_number, interview_type, date, time))
     conn.commit()
 
@@ -60,14 +60,14 @@ def all_input():
 
                 
         while True:            
-            choose_interview_type = input("enter 'o' for online, 'p' for phone call, 'n' not use : ")
-            if choose_interview_type == 'o':
+            interview_choice = input("enter 'o' for online, 'p' for phone call, 'n' not use : ")
+            if interview_choice == 'o':
                 interview_type = 'online'
                 break
-            elif choose_interview_type == 'p':
+            elif interview_choice == 'p':
                 interview_type = 'phone call'
                 break
-            elif choose_interview_type == 'n':
+            elif interview_choice == 'n':
                 interview_type = 'not use'
                 break
             else:
